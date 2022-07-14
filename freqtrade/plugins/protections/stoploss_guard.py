@@ -47,7 +47,7 @@ class StoplossGuard(IProtection):
 
         trades1 = Trade.get_trades_proxy(pair=pair, is_open=False, close_date=look_back_until)
         trades = [trade for trade in trades1 if (str(trade.exit_reason) in (
-            ExitType.TRAILING_STOP_LOSS.value, ExitType.STOP_LOSS.value,
+            ExitType.STOP_LOSS.value,
             ExitType.STOPLOSS_ON_EXCHANGE.value)
             and trade.close_profit and trade.close_profit < 0)]
 
